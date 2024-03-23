@@ -1,0 +1,40 @@
+[package]
+name = "netflow-gen"
+version = "0.0.1"
+edition = "2021"
+repository = "https://github.com/mikhailantoshkin/netflow-gen"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.81"
+chrono = "0.4.35"
+clap = { version = "4.5.3", features = ["derive"] }
+governor = "0.6.3"
+netgauze-flow-pkt = "0.3.0"
+netgauze-parse-utils = "0.3.0"
+sysinfo = "0.30.7"
+tokio = { version = "1.36.0", features = [
+    "macros",
+    "net",
+    "time",
+    "rt-multi-thread",
+] }
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.11.1"
+# CI backends to support
+ci = ["github"]
+# The installers to generate for each app
+installers = []
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["x86_64-unknown-linux-musl"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
