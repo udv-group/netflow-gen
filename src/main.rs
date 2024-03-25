@@ -50,8 +50,11 @@ async fn main() -> Result<(), anyhow::Error> {
     let field_specifiers = vec![
         FieldSpecifier::new(ie::IE::sourceIPv4Address, 4).unwrap(),
         FieldSpecifier::new(ie::IE::destinationIPv4Address, 4).unwrap(),
-        FieldSpecifier::new(ie::IE::octetDeltaCount, 4).unwrap(),
-        FieldSpecifier::new(ie::IE::packetDeltaCount, 4).unwrap(),
+        FieldSpecifier::new(ie::IE::sourceTransportPort, 2).unwrap(),
+        FieldSpecifier::new(ie::IE::destinationTransportPort, 2).unwrap(),
+        FieldSpecifier::new(ie::IE::sourceMacAddress, 6).unwrap(),
+        FieldSpecifier::new(ie::IE::destinationMacAddress, 6).unwrap(),
+        FieldSpecifier::new(ie::IE::protocolIdentifier, 1).unwrap(),
     ];
     let scope_filed_specifiers = vec![];
 
@@ -100,8 +103,13 @@ async fn main() -> Result<(), anyhow::Error> {
                         ie::Field::destinationIPv4Address(ie::destinationIPv4Address(
                             Ipv4Addr::new(50, 0, 71, 1),
                         )),
-                        ie::Field::octetDeltaCount(ie::octetDeltaCount(1312)),
-                        ie::Field::packetDeltaCount(ie::packetDeltaCount(9)),
+                        ie::Field::sourceTransportPort(ie::sourceTransportPort(42069)),
+                        ie::Field::destinationTransportPort(ie::destinationTransportPort(6969)),
+                        ie::Field::sourceMacAddress(ie::sourceMacAddress([0, 0, 0, 0, 0, 0])),
+                        ie::Field::destinationMacAddress(ie::destinationMacAddress([
+                            0, 0, 0, 0, 0, 0,
+                        ])),
+                        ie::Field::protocolIdentifier(ie::protocolIdentifier(6)),
                     ],
                 )],
             }],
