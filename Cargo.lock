@@ -757,8 +757,10 @@ dependencies = [
  "chrono",
  "clap",
  "governor",
+ "ipnet",
  "netgauze-flow-pkt",
  "netgauze-parse-utils",
+ "rand",
  "sysinfo",
  "tokio",
 ]

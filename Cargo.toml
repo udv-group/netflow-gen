@@ -11,8 +11,10 @@ anyhow = "1.0.81"
 chrono = "0.4.35"
 clap = { version = "4.5.3", features = ["derive"] }
 governor = "0.6.3"
+ipnet = "2.9.0"
 netgauze-flow-pkt = "0.3.0"
 netgauze-parse-utils = "0.3.0"
+rand = "0.8.5"
 sysinfo = "0.30.7"
 tokio = { version = "1.36.0", features = [
     "macros",
