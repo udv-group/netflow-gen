@@ -159,7 +159,7 @@ fn parse_mac(s: &str) -> Result<[u8; 6], Box<dyn Error + Send + Sync + 'static>>
     let mut array = [0u8; 6];
 
     let mut nth = 0;
-    for byte in s.split(|c| c == ':' || c == '-') {
+    for byte in s.split([':', '-']) {
         if nth == 6 {
             return Err("Invalid MAC address length".into());
         }
