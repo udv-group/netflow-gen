@@ -27,16 +27,3 @@ tokio = { version = "1.36.0", features = [
 [profile.dist]
 inherits = "release"
 lto = "thin"
-
-# Config for 'cargo dist'
-[workspace.metadata.dist]
-# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
-cargo-dist-version = "0.13.3"
-# CI backends to support
-ci = ["github"]
-# The installers to generate for each app
-installers = []
-# Target platforms to build apps for (Rust target-triple syntax)
-targets = ["x86_64-unknown-linux-musl"]
-# Publish jobs to run in CI
-pr-run-mode = "plan"
