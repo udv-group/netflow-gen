@@ -66,9 +66,9 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 
 async fn send(pkt: NetFlowV9Packet, map: &TemplatesMap, sock: &UdpSocket, addr: SocketAddrV4) {
-    let len = pkt.len(Some(map.clone()), true);
+    let len = pkt.len(Some(map), true);
     let mut data_buf = Vec::with_capacity(len);
     let mut cursor = Cursor::new(&mut data_buf);
-    pkt.write(&mut cursor, Some(map.clone()), true).unwrap();
+    pkt.write(&mut cursor, Some(map), true).unwrap();
     sock.send_to(&data_buf, addr).await.unwrap();
 }
