@@ -11,11 +11,8 @@ ci = "github"
 installers = []
 # Target platforms to build apps for (Rust target-triple syntax)
 targets = ["x86_64-unknown-linux-musl"]
-# Skip checking whether the specified configuration files are up to date
-allow-dirty = ["ci"]
 
 [dist.github-custom-runners]
-global = "ubuntu-22.04"
-
-[dist.github-custom-runners.x86_64-unknown-linux-musl]
-runner = "ubuntu-22.04"
+global = "ubuntu-latest"
+x86_64-unknown-linux-musl = "ubuntu-latest"
+x86_64-unknown-linux-gnu = "ubuntu-latest"
